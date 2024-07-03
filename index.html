@@ -36,23 +36,25 @@
     </div>
     <script>
         function calculateDateDifference() {
-            const targetDate = new Date('2026-08-04');
-            const today = new Date();
+            const startDate = new Date('2024-07-03');
+            const endDate = new Date('2026-08-04');
             
-            const timeDifference = targetDate - today;
+            const timeDifference = endDate - startDate;
             const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const weeksDifference = Math.floor(daysDifference / 7);
-            const monthsDifference = Math.floor(daysDifference / 30);
-            const yearsDifference = Math.floor(daysDifference / 365);
             
+            let years = Math.floor(daysDifference / 365);
+            let months = Math.floor((daysDifference % 365) / 30);
+            let days = daysDifference - (years * 365) - (months * 30);
+
+            let totalMonths = (years * 12) + months;
+
             document.getElementById('difference').innerHTML = `
-                Difference from today to August 4, 2026:
-                <ul>
-                    <li>Days: ${daysDifference}</li>
-                    <li>Weeks: ${weeksDifference}</li>
-                    <li>Months: ${monthsDifference}</li>
-                    <li>Years: ${yearsDifference}</li>
-                </ul>
+                From and including: Wednesday, 3 July 2024<br>
+                To, but not including Tuesday, 4 August 2026<br><br>
+                Result: ${daysDifference} days<br><br>
+                It is ${daysDifference} days from the start date to the end date, but not including the end date.<br><br>
+                Or ${years} years, ${months} months, ${days} days excluding the end date.<br><br>
+                Or ${totalMonths} months, ${days} days excluding the end date.
             `;
         }
 
