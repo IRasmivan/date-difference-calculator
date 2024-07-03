@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Difference Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Date Difference Calculator</h1>
+        <p id="difference"></p>
+    </div>
+    <script>
+        function calculateDateDifference() {
+            const targetDate = new Date('2026-08-04');
+            const today = new Date();
+            
+            const timeDifference = targetDate - today;
+            const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const weeksDifference = Math.floor(daysDifference / 7);
+            const monthsDifference = Math.floor(daysDifference / 30);
+            const yearsDifference = Math.floor(daysDifference / 365);
+            
+            document.getElementById('difference').innerHTML = `
+                Difference from today to August 4, 2026:
+                <ul>
+                    <li>Days: ${daysDifference}</li>
+                    <li>Weeks: ${weeksDifference}</li>
+                    <li>Months: ${monthsDifference}</li>
+                    <li>Years: ${yearsDifference}</li>
+                </ul>
+            `;
+        }
+
+        calculateDateDifference();
+    </script>
+</body>
+</html>
