@@ -49,7 +49,7 @@
             let totalMonths = (years * 12) + months;
 
             document.getElementById('difference').innerHTML = `
-                From and including: Wednesday, 3 July 2024<br>
+                From and including: ${startDate.toDateString()}<br>
                 To, but not including Tuesday, 4 August 2026<br><br>
                 Result: ${daysDifference} days<br><br>
                 It is ${daysDifference} days from the start date to the end date, but not including the end date.<br><br>
